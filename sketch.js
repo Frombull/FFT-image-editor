@@ -199,7 +199,7 @@ function loadDefaultImage() {
         alert('Não foi possível carregar a imagem padrão.');
     };
     
-    img.src = 'Lenna.png';
+    img.src = 'Images/Lenna.png';
 }
 
 function handleImageUpload(event) {
