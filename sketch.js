@@ -263,6 +263,21 @@ function processImage() {
     
     imgData = originalCtx.getImageData(0, 0, canvasSize, canvasSize);
     
+    // Convert to black and white
+    for (let i = 0; i < imgData.data.length; i += 4) {
+        const r = imgData.data[i];
+        const g = imgData.data[i + 1];
+        const b = imgData.data[i + 2];
+        
+        const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+        
+        imgData.data[i] = gray;
+        imgData.data[i + 1] = gray;
+        imgData.data[i + 2] = gray;
+    }
+    
+    originalCtx.putImageData(imgData, 0, 0);
+    
     calculateAndDisplayFFT();
     
     lastDrawX = -1;
@@ -686,9 +701,6 @@ function applyBrushAt(x, y) {
                     switch(drawMode) {
                         case 'erase':
                             fftMagnitudeData[i] *= (1 - strength * 0.8);
-                            break;
-                        case 'boost':
-                            fftMagnitudeData[i] *= (1 + strength * 2);
                             break;
                         case 'smooth':
                             let avg = 0;
