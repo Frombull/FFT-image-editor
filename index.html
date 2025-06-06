@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Imagem FFT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Editor FFT feliz :)</h1>
+        
+        <div class="upload-section">
+            <div class="file-input-wrapper">
+                <input type="file" id="imageUpload" accept="image/*">
+                📸 Escolha uma Imagem 📸
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label>Tamanho do Pincel:</label>
+                <input type="range" id="brushSize" min="10" max="100" value="20">
+                <span id="brushSizeValue">10</span>
+            </div>
+            <div class="control-group">
+                <label>Modo:</label>
+                <select id="drawMode">
+                    <option value="erase">⚫ Pincel preto</option>
+                    <option value="boost">⚪ Pincel branco</option>
+                    <option value="smooth">🔳 Pincel suavin</option>
+                </select>
+            </div>
+            <button onclick="resetFFT()">🔄 Reset</button>
+        </div>
+        
+        <div class="canvas-container">
+            <div class="canvas-section">
+                <h3>🖼️ Imagem Original</h3>
+                <canvas id="originalCanvas" width="512" height="512"></canvas>
+            </div>
+            <div class="canvas-section">
+                <h3>📊 Domínio da Frequência</h3>
+                <canvas id="fftCanvas" width="512" height="512"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="sketch.js"></script>
+</body>
+</html>
