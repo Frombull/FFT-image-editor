@@ -2,7 +2,9 @@
 
 Um editor de imagem simples que utiliza a Transformada Rápida de Fourier (FFT) para manipulação de imagens no domínio da frequência.
 
-![UI Screenshot](https://raw.githubusercontent.com/frombull/FFT-image-editor/main/Images/UI_screenshot.png)
+<p align="center">
+  <img src="Images/UI_Screenshot.jpg" width="640" />
+</p>
 
 
 ## Como usar
